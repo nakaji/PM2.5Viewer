@@ -58,6 +58,18 @@ public class MainActivity extends Activity {
                 drawMap();
             }
         });
+        
+        Button now = (Button) findViewById(R.id.buttonNow);
+        now.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                calendarInit();
+
+                drawMap();
+            }
+        });
     }
 
     /*
