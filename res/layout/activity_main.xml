@@ -14,7 +14,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/buttonPrev"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_weight="0.08"
@@ -22,7 +22,7 @@
         android:src="@drawable/ic_launcher" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonPrev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -31,11 +31,11 @@
         android:text="3時間前" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBaseline="@+id/buttonPrev"
+        android:layout_alignBottom="@+id/buttonPrev"
         android:layout_alignRight="@+id/imageView"
         android:text="3時間後" />
 
