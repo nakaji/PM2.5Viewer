@@ -17,7 +17,6 @@
         android:layout_above="@+id/buttonPrev"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_weight="0.08"
         android:scaleType="fitStart"
         android:src="@drawable/ic_launcher" />
 
@@ -27,8 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_weight="0.08"
-        android:text="3時間前" />
+        android:text="@+string/prev" />
 
     <Button
         android:id="@+id/buttonNext"
@@ -37,6 +35,6 @@
         android:layout_alignBaseline="@+id/buttonPrev"
         android:layout_alignBottom="@+id/buttonPrev"
         android:layout_alignRight="@+id/imageView"
-        android:text="3時間後" />
+        android:text="@+string/next" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@
 
     <string name="app_name">PM25Viewer</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="prev">3時間前</string>
+    <string name="next">3時間後</string>
 
 </resources>
