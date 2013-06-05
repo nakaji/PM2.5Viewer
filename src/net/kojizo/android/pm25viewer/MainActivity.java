@@ -11,8 +11,6 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
@@ -20,8 +18,6 @@ public class MainActivity extends Activity {
     private final String fileNameFormat = "japan_detail_%04d-%02d-%02d-%02d-00-00_large.jpg";
     private final String BaseUrl = "http://guide.tenki.jp/static_images/particulate_matter/japan_detail/";
     private Calendar _cal;
-
-    private final MainActivity mainActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,45 +27,37 @@ public class MainActivity extends Activity {
         //StrictModeを設定 penaltyDeathを取り除く
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
 
+        displayNow(null);
+    }
+
+    /***
+     * 3時間前の状況を表示する
+     * @param v
+     */
+    public void displayPrev(View v){
+        _cal.add(Calendar.HOUR_OF_DAY, -3);
+
+        drawMap();
+    }
+
+    /***
+     * 3時間後の状況を表示する
+     * @param v
+     */
+    public void displayNext(View v){
+        _cal.add(Calendar.HOUR_OF_DAY, 3);
+
+        drawMap();
+    }
+
+    /***
+     * 現在の状況を表示する
+     * @param v
+     */
+    public void displayNow(View v){
         calendarInit();
 
         drawMap();
-
-        Button prev = (Button) findViewById(R.id.buttonPrev);
-        prev.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                _cal.add(Calendar.HOUR, -3);
-
-                drawMap();
-            }
-        });
-
-        Button next = (Button) findViewById(R.id.buttonNext);
-        next.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                _cal.add(Calendar.HOUR_OF_DAY, 3);
-
-                drawMap();
-            }
-        });
-        
-        Button now = (Button) findViewById(R.id.buttonNow);
-        now.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                calendarInit();
-
-                drawMap();
-            }
-        });
     }
 
     /*
