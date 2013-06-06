@@ -15,8 +15,7 @@
         android:id="@+id/imageView"
         android:layout_height="311dp"
         android:layout_gravity="fill_horizontal"
-        android:scaleType="fitStart"
-        android:src="@drawable/ic_launcher" />
+        android:scaleType="fitStart" />
 
     <Space
         android:layout_column="1"
