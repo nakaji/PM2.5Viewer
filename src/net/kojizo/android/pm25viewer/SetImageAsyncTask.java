@@ -1,5 +1,7 @@
 package net.kojizo.android.pm25viewer;
 
+import gueei.binding.Observable;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Calendar;
@@ -7,16 +9,15 @@ import java.util.Calendar;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ImageView;
 
 public class SetImageAsyncTask extends AsyncTask<Calendar, Integer, Drawable> {
 
-    private final ImageView _imageVview;
+    private Observable<Drawable> _drawable;
     private final String fileNameFormat = "japan_detail_%04d-%02d-%02d-%02d-00-00_large.jpg";
     private final String BaseUrl = "http://guide.tenki.jp/static_images/particulate_matter/japan_detail/";
 
-    public SetImageAsyncTask(ImageView imageView) {
-        _imageVview = imageView;
+    public SetImageAsyncTask(Observable<Drawable> drawable) {
+        _drawable = drawable;
     }
 
     @Override
@@ -47,6 +48,6 @@ public class SetImageAsyncTask extends AsyncTask<Calendar, Integer, Drawable> {
 
     @Override
     protected void onPostExecute(Drawable drawable) {
-        _imageVview.setImageDrawable(drawable);
+        _drawable.set(drawable);
     }
 }

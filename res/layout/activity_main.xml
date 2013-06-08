@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://www.gueei.com/android-binding/"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/GridLayout1"
     android:layout_width="match_parent"
@@ -15,7 +17,8 @@
         android:id="@+id/imageView"
         android:layout_height="311dp"
         android:layout_gravity="fill_horizontal"
-        android:scaleType="fitStart" />
+        android:scaleType="fitStart"
+        binding:source="Image" />
 
     <Space
         android:layout_column="1"
@@ -25,23 +28,23 @@
     <Button
         android:id="@+id/buttonPrev"
         android:layout_gravity="left"
-        android:text="@+string/prev"
-        android:onClick="displayPrev"/>
+        binding:onClick="DisplayPrev"
+        android:text="@+string/prev" />
 
     <Button
         android:id="@+id/buttonNow"
         android:layout_column="0"
         android:layout_gravity="center_horizontal|top"
         android:layout_row="3"
-        android:text="@+string/now"
-        android:onClick="displayNow"/>
+        binding:onClick="DisplayNow"
+        android:text="@+string/now" />
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_column="0"
         android:layout_gravity="right|top"
         android:layout_row="3"
-        android:text="@+string/next"
-        android:onClick="displayNext" />
+        binding:onClick="DisplayNext"
+        android:text="@+string/next" />
 
 </GridLayout>
