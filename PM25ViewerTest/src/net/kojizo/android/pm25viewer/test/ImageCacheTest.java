@@ -53,9 +53,21 @@ public class ImageCacheTest extends AndroidTestCase {
 
         assertNull(result);
     }
+
     public void testキャッシュにヒットするものがあればDrawableを返す() {
         Drawable result = cache.getImage("hoge.png");
 
         assertNotNull(result);
     }
+
+    public void testキャッシュのサイズを取得する() {
+        assertEquals(1, cache.size());
+    }
+
+    public void testキャッシュにDrawableを登録する() {
+        Drawable d = (BitmapDrawable) getExTestContext().getResources().getDrawable(R.drawable.ic_launcher2);
+        cache.add("fuga.png", d);
+
+        assertEquals(2, cache.size());
+   }
 }

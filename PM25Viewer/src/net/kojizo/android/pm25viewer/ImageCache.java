@@ -17,4 +17,12 @@ public class ImageCache {
         return d;
     }
 
+    public int size() {
+        return _hash.size();
+    }
+
+    public void add(String string, Drawable drawable) {
+        _hash.put(string, drawable);
+    }
+
 }
