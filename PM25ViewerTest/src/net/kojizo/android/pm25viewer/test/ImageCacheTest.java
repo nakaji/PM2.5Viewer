@@ -1,28 +1,48 @@
 package net.kojizo.android.pm25viewer.test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Hashtable;
 
 import net.kojizo.android.pm25viewer.ImageCache;
-import net.kojizo.android.pm25viewer.MainActivity;
+import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.test.ActivityInstrumentationTestCase2;
+import android.test.AndroidTestCase;
 
-public class ImageCacheTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class ImageCacheTest extends AndroidTestCase {
 
-    public ImageCacheTest(Class<MainActivity> activityClass) {
-        super(activityClass);
-        // TODO 自動生成されたコンストラクター・スタブ
-    }
     private ImageCache cache;
 
-    public ImageCacheTest() {
-        super(MainActivity.class);
+    /***
+     * テストプロジェクトのコンテキストを返す
+     * @return
+     */
+    public Context getExTestContext() {
+        Context context = null;
+        @SuppressWarnings("unchecked")
+        Class clz = (Class) this.getClass();
+        try {
+            Method method = clz.getMethod("getTestContext");
+            context = (Context) method.invoke(this);
+        } catch (SecurityException e) {
+            fail();
+        } catch (NoSuchMethodException e) {
+            fail();
+        } catch (IllegalArgumentException e) {
+            fail();
+        } catch (IllegalAccessException e) {
+            fail();
+        } catch (InvocationTargetException e) {
+            fail();
+        }
+        return context;
     }
-    public void setUp() {
-        Hashtable<String, Drawable> hash = new Hashtable<String, Drawable>() ;
 
-        Drawable d = (BitmapDrawable) this.getActivity().getResources().getDrawable(R.drawable.ic_launcher);
+    public void setUp() {
+        Hashtable<String, Drawable> hash = new Hashtable<String, Drawable>();
+
+        Drawable d = (BitmapDrawable) getExTestContext().getResources().getDrawable(R.drawable.ic_launcher);
         hash.put("hoge.png", d);
 
         cache = new ImageCache(hash);
