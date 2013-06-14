@@ -80,7 +80,7 @@ public class MainViewModel {
         } else {
             //非同期実行用のタスクを作成し、実行
             SetImageAsyncTask task = new SetImageAsyncTask(Image);
-            task.execute(_cal, cache);
+            task.execute(uri, cache);
         }
     }
 
